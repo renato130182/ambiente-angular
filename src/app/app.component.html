@@ -1,0 +1,43 @@
+<h1 class="text-success text-center">Diretivas Angular</h1>
+
+<div 
+  [ngStyle]="{background: count< 5 ? 'red' : 'green'}"
+  [ngClass]="{custom: count > 5}"
+  >
+  <h2 class="text-center">Contador:{{count}} Loop:{{loopCounter}}</h2>
+</div>
+
+<!-- Diretvas Estruturais -->
+<h2 *ngIf="upper===false;else increment">Contador decrementando</h2>
+
+<ng-template #increment>
+  <h2>Contador Incrementando</h2>
+</ng-template>
+
+<ul [ngSwitch]="count" class="list-group mx-auto">
+  <li class="list-group-item" *ngSwitchCase="1" >1</li>
+  <li class="list-group-item" *ngSwitchCase="2">2</li>
+  <li class="list-group-item" *ngSwitchCase="3">3</li>
+  <li class="list-group-item" *ngSwitchCase="4">4</li>
+  <li class="list-group-item" *ngSwitchCase="5">5</li>
+  <li class="list-group-item" *ngSwitchCase="6">6</li>
+  <li class="list-group-item" *ngSwitchCase="7">7</li>
+  <li class="list-group-item" *ngSwitchCase="8">8</li>
+  <li class="list-group-item" *ngSwitchCase="9">9</li>
+  <li class="list-group-item" *ngSwitchCase="10">10</li>
+  <li class="list-group-item" *ngSwitchDefault>Default</li>
+</ul>
+
+<ul class="list-group mx-auto">
+  <li *ngFor="let p of pessoas " class="list-group-item">
+    Nome: {{p.firstName}} {{p.lastName}} Idade: {{p.age}}
+  </li>
+</ul>
+
+<h2 appMarcaTexto corDeFundo="blue" corDoTexto="black">{{nome}}</h2>
+<button class="btn btn-success" (click)="clicou('Renato')" >Clique</button>
+
+<div class="col4 mx-auto">
+  <input type="text" class="form-control" placeholder="Digite algo aqui!!!" [(ngModel)]="text">
+  <h3 appMarcaTexto>Digitado: {{text}}</h3>
+</div>
